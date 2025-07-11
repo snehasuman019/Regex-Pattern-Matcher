@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Regex Pattern Matcher</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Regex Pattern Matcher</h1>
+        <form id="regex-form" autocomplete="off">
+            <label for="pattern">Pattern (subset):</label>
+            <input type="text" id="pattern" name="pattern" placeholder="e.g. a.*b?c+" required>
+            <label for="test-string">Test String:</label>
+            <input type="text" id="test-string" name="test-string" placeholder="Enter string to test" required>
+            <div class="buttons">
+                <button type="submit">Match</button>
+                <button type="button" id="clear-btn">Clear</button>
+            </div>
+        </form>
+        <div id="result"></div>
+        <div class="history-section">
+            <h2>History</h2>
+            <ul id="history-list"></ul>
+        </div>
+        <div class="info">
+            <h2>Supported Pattern Features</h2>
+            <ul>
+                <li><code>.</code> (dot): any single character</li>
+                <li><code>*</code>: zero or more of the previous element</li>
+                <li><code>+</code>: one or more of the previous element</li>
+                <li><code>?</code>: zero or one of the previous element</li>
+                <li><code>[abc]</code>: character class (a, b, or c)</li>
+                <li><code>^</code>: start of string</li>
+                <li><code>$</code>: end of string</li>
+            </ul>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html> 

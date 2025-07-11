@@ -1,0 +1,282 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap');
+
+body {
+    min-height: 100vh;
+    background: url('https://images.saymedia-content.com/.image/t_share/MTkyOTkyMzE2OTQ3MDQ3NjQ1/website-background-templates.png') no-repeat center center fixed;
+    background-size: cover;
+    font-family: 'Montserrat', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(30, 34, 90, 0.55); /* deep blue overlay for readability */
+    z-index: 0;
+    pointer-events: none;
+}
+
+.container {
+    max-width: 800px;
+    min-width: 800px;
+    min-height: 1100px;
+    max-height: 1100px;
+    margin: 60px auto;
+    background: rgba(255,255,255,0.92);
+    border-radius: 18px;
+    box-shadow: 0 12px 40px rgba(30,34,90,0.18), 0 2px 12px rgba(67,198,172,0.10);
+    padding: 64px 64px 48px 64px;
+    transition: box-shadow 0.3s, transform 0.3s;
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    overflow: hidden;
+    gap: 24px;
+}
+
+#regex-form {
+    flex-shrink: 0;
+}
+
+#result {
+    flex-shrink: 0;
+}
+
+.history-section {
+    margin-top: 0;
+    padding: 18px 18px 8px 18px;
+    border-radius: 16px;
+    max-height: 120px;
+    overflow-y: auto;
+    flex-shrink: 0;
+    background: rgba(255,255,255,0.88);
+    border-radius: 16px;
+    box-shadow: 0 1px 8px #5b7fff22;
+    padding: 32px 32px 18px 32px;
+    font-family: 'Montserrat', Arial, sans-serif;
+}
+
+.history-section h2 {
+    margin: 0 0 12px 0;
+    font-size: 1.35rem;
+    color: #2e3a7a;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+#history-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    max-height: 70px;
+    overflow-y: auto;
+    font-size: 1.19rem;
+}
+
+#history-list .empty {
+    color: #b0b8c1;
+    text-align: center;
+    font-style: italic;
+    padding: 8px 0;
+}
+
+.history-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 7px 0 7px 0;
+    border-bottom: 1px solid #e0e7ff;
+    font-size: 0.99rem;
+    transition: background 0.2s;
+}
+
+.history-item:last-child {
+    border-bottom: none;
+}
+
+.history-item.match .res {
+    color: #2e7d32;
+    font-weight: 600;
+}
+
+.history-item.no-match .res, .history-item.error .res {
+    color: #c62828;
+    font-weight: 600;
+}
+
+.history-item .pat {
+    color: #5b7fff;
+    font-family: 'Montserrat', monospace;
+}
+
+.history-item .str {
+    color: #7f53ac;
+    font-family: 'Montserrat', monospace;
+}
+
+.history-item .res {
+    margin-left: auto;
+    font-size: 1.01rem;
+}
+
+.info {
+    margin-top: 0;
+    padding: 18px 18px;
+    border-radius: 16px;
+    font-size: 1.13rem;
+    max-height: 120px;
+    overflow-y: auto;
+    flex-shrink: 0;
+    background: linear-gradient(90deg, #e0e7ff 0%, #f7f9ff 100%);
+    border-radius: 16px;
+    padding: 36px 36px;
+    font-size: 1.19rem;
+    color: #2e3a7a;
+    box-shadow: 0 1px 6px #5b7fff22;
+}
+
+.info h2 {
+    margin-top: 0;
+    font-size: 1.29rem;
+    color: #7f53ac;
+    font-weight: 600;
+}
+
+.info ul {
+    margin: 0;
+    padding-left: 20px;
+}
+
+.info li {
+    margin-bottom: 11px;
+    font-size: 1.17rem;
+    color: #2e3a7a;
+}
+
+@media (max-width: 850px) {
+  .container {
+    max-width: 98vw;
+    min-width: 0;
+    min-height: 98vw;
+    max-height: none;
+    padding: 12px 2vw;
+    gap: 10px;
+  }
+  .history-section, .info {
+    max-height: 80px;
+    padding: 8px 4px;
+  }
+  #history-list {
+    max-height: 40px;
+  }
+}
+
+.container:hover {
+    box-shadow: 0 12px 40px rgba(30,34,90,0.28), 0 2px 12px rgba(67,198,172,0.16);
+    transform: translateY(-4px) scale(1.015);
+}
+
+h1 {
+    text-align: center;
+    color: #2e3a7a;
+    margin-bottom: 44px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    font-size: 3.2rem;
+    text-shadow: 0 2px 8px #fff8, 0 1px 0 #fff;
+    font-family: 'Ananda Black', cursive;
+}
+
+label {
+    display: block;
+    margin-top: 32px;
+    margin-bottom: 16px;
+    color: #3a4a8d;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    font-size: 1.35rem;
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 22px 20px;
+    border: 1.5px solid #b2c6f7;
+    border-radius: 7px;
+    font-size: 1.35rem;
+    margin-bottom: 24px;
+    transition: border 0.2s, box-shadow 0.2s;
+    background: #f7f9ff;
+    font-family: 'Montserrat', Arial, sans-serif;
+}
+
+input[type="text"]:focus {
+    border: 2px solid #5b7fff;
+    outline: none;
+    box-shadow: 0 0 0 3px #5b7fff33;
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 32px;
+    gap: 28px;
+}
+
+button {
+    padding: 18px 48px;
+    border: none;
+    border-radius: 7px;
+    background: linear-gradient(90deg, #5b7fff 0%, #7f53ac 100%);
+    color: #fff;
+    font-size: 1.35rem;
+    font-family: 'Montserrat', Arial, sans-serif;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(91,127,255,0.18);
+    transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+    letter-spacing: 0.5px;
+}
+
+button:hover {
+    background: linear-gradient(90deg, #7f53ac 0%, #5b7fff 100%);
+    transform: translateY(-2px) scale(1.04);
+    box-shadow: 0 4px 16px rgba(91,127,255,0.22);
+}
+
+#result {
+    margin-top: 48px;
+    font-size: 1.45rem;
+    text-align: center;
+    min-height: 54px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 16px 0;
+}
+
+#result.match {
+    color: #2e7d32;
+    background: #e3f7e7;
+    border-radius: 6px;
+    padding: 8px 14px;
+    box-shadow: 0 1px 4px #5b7fff22;
+}
+
+#result.no-match, #result.error {
+    color: #c62828;
+    background: #ffeaea;
+    border-radius: 6px;
+    padding: 8px 14px;
+    box-shadow: 0 1px 4px #c6282822;
+} 
